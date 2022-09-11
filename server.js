@@ -10,6 +10,13 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 
-sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
-  });
+const db = mysql.createConnection(
+    {
+      host: 'localhost',
+      user: 'root',
+      password: '428C96anfqs',
+      database: 'employeeDB'
+    },
+    console.log(`Connected to the employeeDB database.`)
+  );
+
